@@ -50,13 +50,9 @@ public class Vector2Int
     @Override
     public boolean equals(Object obj)
     {
-        if (this == obj) return true;
-        if (obj == null) return false;
-        if (getClass() != obj.getClass()) return false;
         Vector2Int other = (Vector2Int) obj;
-        if (x != other.x) return false;
-        if (y != other.y) return false;
-        return true;
+
+        return (toString().equals(other.toString()));
     }
 
     /**
@@ -68,6 +64,11 @@ public class Vector2Int
     public String toString()
     {
         return "(" + x + "," + y + ")";
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.valueOf(x + "00" + y);
     }
 
     public Vector2Int scl (int scalar) {
